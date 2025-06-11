@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Transfer implements Runnable {
 
-    ReentrantLock locker;
+    ReentrantLock locker; // add ReentrantLock lock as variable
     private Account accFrom;
     private Account accTo;
     private int sum;
@@ -13,7 +13,7 @@ public class Transfer implements Runnable {
         this.accFrom = accFrom;
         this.accTo = accTo;
         this.sum = sum;
-        locker = lock;
+        locker = lock;  // add ReentrantLock to constructor
     }
 
 
