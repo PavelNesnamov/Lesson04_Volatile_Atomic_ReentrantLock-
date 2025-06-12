@@ -28,15 +28,14 @@ public class Transfer implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            finally {
+                locker.unlock(); //unblocked
+            }
             synchronized (accTo) {
                 if (accFrom.getBalance() >= sum) {
                     accFrom.credit(sum);
                     accTo.debit(sum);
-                } try {
 
-                }
-                finally {
-                    locker.unlock(); //unblocked
                 }
             }
         }
